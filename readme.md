@@ -31,7 +31,7 @@ Note that updating previous meetings will also pull in any new meetings, so that
 Commit your changes into a feature branch (include both `index.Rmd` and `index.html`). 
 Push to the [TampUseRs github repo](https://github.com/TampaUseRs/TampaUseRs) and submit a PR.
 
-GitHub Pages is enabled in the repo settings to serve from the `docs/` folder of the master branch.
+GitHub Pages is autmatically enabled to serve from the root folder of the master branch to <https://tampausers.github.io>
 
 
 ## Required Packages
