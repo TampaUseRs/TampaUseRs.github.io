@@ -118,13 +118,23 @@ if (is.null(upcoming$result)) {
 ## Past Meetups
 
 ```{r past-meetups}
+make_link <- function(url, text) {
+    if (!is.null(url) && !is.na(url) && url != "") {
+      paste0('<a href="', url, '">', text, '</a>')
+    } else text
+}
+
 past <- yaml::yaml.load_file("past_meetups.yaml")
 purrr::transpose(past) %>% 
+  modify_depth(2, ~ ifelse(is.null(.), NA, .)) %>% 
   as_tibble() %>% 
   tidyr::unnest() %>% 
-  mutate(topic = paste0('<a href="', link, '">', topic, '</a>')) %>% 
-  select(-link) %>% 
-  arrange(date) %>% 
+  mutate(
+    topic = map2_chr(link, topic, make_link),
+    presenter = map2_chr(presenter_url, presenter, make_link)
+  ) %>% 
+  select(-link, -presenter_url) %>% 
+  arrange(desc(date)) %>% 
   DT::datatable(
     colnames = c("Date", "Presenter", "Topic"), 
     rownames = FALSE,
