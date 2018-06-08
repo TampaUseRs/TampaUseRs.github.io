@@ -27,3 +27,9 @@
   presenter: Kris Kindle
   topic: Shiny Server
   link: https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20180424-shiny-server
+
+- date: 2018-05-29
+  presenter: Mahdi Goudarzi
+  topic: Integrating Python and R
+  link: https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20180529-python-and-r
+  

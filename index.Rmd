@@ -56,7 +56,8 @@ The [discussion board][discussion-board] is under Teams > Everyone > Discussion.
 ## Upcoming Meetups
 
 ```{r get-upcoming, include=FALSE}
-upcoming <- meetupr::get_events(trug_url_slug)
+safely_get_meetup_events <- safely(meetupr::get_events)
+upcoming <- safely_get_meetup_events(trug_url_slug)
 ```
 
 ```{r upcoming-meetups}
@@ -105,7 +106,13 @@ event_to_html <- function(x) {
     tags$blockquote(HTML(x$description))
   )
 }
-div(purrr::map(split(upcoming, upcoming$id), event_to_html))
+if (is.null(upcoming$result)) {
+  div(p("We try to meet on the fourth Tuesday of each month,", 
+        "but our next meetup has not yet been announced. Check back soon!"))
+} else {
+  upcoming <- upcoming$result
+  div(purrr::map(split(upcoming, upcoming$id), event_to_html))
+}
 ```
 
 ## Past Meetups
