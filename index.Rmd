@@ -34,6 +34,7 @@ icon <- function(name, class = NULL) {
 [twitter]: https://www.twitter.com/UseRTampa/
 [github]: https://github.com/TampaUseRs
 [discussion-board]: https://github.com/orgs/TampaUseRs/teams/everyone/discussions
+[email]: mailto:UseRTampa@gmail.com
 
 <a href="https://www.meetup.com/Tampa-R-Users-Group/"><img align="right" src="https://raw.githubusercontent.com/TampaUseRs/TampaUseRs/master/assets/hex-logo/trug-hex-800.png" width="250px"></a>
 Welcome to the online home of the Tampa Users R Group!
@@ -46,11 +47,13 @@ Welcome to the online home of the Tampa Users R Group!
 
 - [&commat;UseRTampa on Twitter][twitter]
 
+- Email: <UseRTampa@gmail.com>
+
 ### Discussion Board
 
 We have a [discussion board][discussion-board] available on GitHub for `#rstats` related questions, posts, discussions and announcements.
 
-To join, request access to GitHub [TampaUseRs organization][github] by sending your GitHub username to [&commat;UseRTampa on Twitter][twitter] or the TampaUseRs organizers via [Meetup][meetup].
+To join, request access to GitHub [TampaUseRs organization][github] by sending your GitHub username to [&commat;UseRTampa on Twitter][twitter] or the TampaUseRs organizers via [email][email] or [Meetup][meetup].
 The [discussion board][discussion-board] is under Teams > Everyone > Discussion.
 
 ## Upcoming Meetups
