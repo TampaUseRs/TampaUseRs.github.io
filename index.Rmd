@@ -59,8 +59,15 @@ The [discussion board][discussion-board] is under Teams > Everyone > Discussion.
 ## Upcoming Meetups
 
 ```{r get-upcoming, include=FALSE}
-safely_get_meetup_events <- safely(meetupr::get_events)
-upcoming <- safely_get_meetup_events(trug_url_slug)
+upcoming <- if (file.exists("upcoming.rds")) {
+  message("Loading cached upcoming meetup information")
+  readRDS("upcoming.rds")
+} else {
+  message("Getting up-to-date meetup events from Meetup")
+  safely_get_meetup_events <- safely(meetupr::get_events)
+  upcoming <- safely_get_meetup_events(trug_url_slug)
+  saveRDS(upcoming, "upcoming.rds")
+}
 ```
 
 ```{r upcoming-meetups}
@@ -149,6 +156,15 @@ purrr::transpose(past) %>%
     )
   )
 ```
+
+## Speaker Resources
+
+Are you interested in speaking at an upcoming **Tampa R Users Group** Meetup?
+If so, please drop a line to us at [UseRTampa at gmail dot com][email] or via our [Meetup page][meetup].
+
+For upcoming speakers, we've compiled a list of resources and materials to help you plan, design, and promote your talk.
+Visit the [TampaUseRs/speaker-starter-kit](https://github.com/TampaUseRs/speaker-starter-kit) repository on GitHub for more information.
+We can't wait to learn from you!
 
 ## Sponsors
 
