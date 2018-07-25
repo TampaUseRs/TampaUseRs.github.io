@@ -32,10 +32,10 @@ The website is rendered using `rmarkdown::render_site()`.
 Make any changes and run this function.
 To update the upcoming meetups, remove `upcoming.rds` (if it exists) first.
 
-Commit your changes into a feature branch (include both source `*.Rmd` or `.md` files and `docs/`). 
+Commit your changes into a feature branch (include both source `*.Rmd` or `.md` files and rendered `.html` files.). 
 Push to the [TampUseRs github repo](https://github.com/TampaUseRs/TampaUseRs) and submit a PR.
 
-GitHub Pages is autmatically enabled to serve from the `docs/` folder of the master branch to <https://tampausers.github.io>
+GitHub Pages is autmatically enabled to serve from the master branch to <https://tampausers.github.io>
 
 
 ## Required Packages
