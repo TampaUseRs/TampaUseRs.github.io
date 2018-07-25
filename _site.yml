@@ -1,0 +1,30 @@
+name: "Tampa R UseRs Group"
+output_dir: "docs"
+exclude: readme.md
+navbar:
+  title: "Tampa R UseRs Group"
+  theme: readable
+  left:
+    - text: "Meetups"
+      menu:
+      - text: "Upcoming Meetups"
+        href: "index.html#upcoming-meetups"
+      - text: "Past Meetups"
+        href: "index.html#past-meetups"
+    - text: "Member Resources"
+      menu:
+      - text: "Speaker Resources"
+        href: "index.html#speaker-resources"
+      - text: "Discussion Board"
+        href: "https://github.com/orgs/TampaUseRs/teams/everyone/discussions"
+  right:
+    - icon: fa-twitter
+      href: https://www.twitter.com/UseRTampa/
+    - icon: fa-github
+      href: https://github.com/TampaUseRs
+    - icon: fa-meetup
+      href: https://www.meetup.com/Tampa-R-Users-Group/
+output: 
+  html_document: 
+    css: trug.css
+    theme: readable

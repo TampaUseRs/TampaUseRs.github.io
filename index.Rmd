@@ -1,13 +1,12 @@
 ---
 title: "Tampa R Users Group"
-output: 
-  html_document: 
-    css: trug.css
-    theme: readable
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
 ---
+
+<script>
+$("a[href^='#']").click(function() {
+     $('html,body').animate({scrollTop: $(this).offset().top}, 500);
+});
+</script>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)

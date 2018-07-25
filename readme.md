@@ -28,10 +28,14 @@ Note that updating previous meetings will also pull in any new meetings, so that
 
 ## Deploying
 
-Commit your changes into a feature branch (include both `index.Rmd` and `index.html`). 
+The website is rendered using `rmarkdown::render_site()`.
+Make any changes and run this function.
+To update the upcoming meetups, remove `upcoming.rds` (if it exists) first.
+
+Commit your changes into a feature branch (include both source `*.Rmd` or `.md` files and `docs/`). 
 Push to the [TampUseRs github repo](https://github.com/TampaUseRs/TampaUseRs) and submit a PR.
 
-GitHub Pages is autmatically enabled to serve from the root folder of the master branch to <https://tampausers.github.io>
+GitHub Pages is autmatically enabled to serve from the `docs/` folder of the master branch to <https://tampausers.github.io>
 
 
 ## Required Packages
