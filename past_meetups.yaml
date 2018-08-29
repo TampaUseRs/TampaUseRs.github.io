@@ -46,3 +46,9 @@
   presenter_url: http://thomas-keller.github.io
   topic: Analyzing Social Networks with rtweet and special guestr
   link: https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20180724-twitter-networks
+
+- date: 2018-08-28
+  presenter: Vince Kegel
+  presenter_url: https://twitter.com/vkegel
+  topic: Intro to Keras/TensorFlow
+  link: https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20180828-tensorflow
