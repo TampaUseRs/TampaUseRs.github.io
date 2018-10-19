@@ -66,6 +66,7 @@ upcoming <- if (file.exists("upcoming.rds")) {
   safely_get_meetup_events <- safely(meetupr::get_events)
   upcoming <- safely_get_meetup_events(trug_url_slug)
   saveRDS(upcoming, "upcoming.rds")
+  upcoming
 }
 ```
 
