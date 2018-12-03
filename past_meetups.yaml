@@ -52,3 +52,8 @@
   presenter_url: https://twitter.com/vkegel
   topic: Intro to Keras/TensorFlow
   link: https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20180828-tensorflow
+
+- date: 2018-11-15
+  presenter: Michael Mooney
+  topic: R with Power BI and Tableau
+  link: "https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20181023-powerBI-and-Bert"
