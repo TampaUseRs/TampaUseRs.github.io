@@ -57,3 +57,9 @@
   presenter: Michael Mooney
   topic: R with Power BI and Tableau
   link: "https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20181023-powerBI-and-Bert"
+
+- date: 2019-01-22
+  presenter: Dulani Woods
+  presenter_url: "https://github.com/Dulani"
+  topic: Using R Shiny as an online survey tool
+  link: "https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20190122-shiny-survey"
