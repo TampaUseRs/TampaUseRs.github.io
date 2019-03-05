@@ -63,3 +63,9 @@
   presenter_url: "https://github.com/Dulani"
   topic: Using R Shiny as an online survey tool
   link: "https://github.com/TampaUseRs/TampaUseRs/tree/master/meetups/20190122-shiny-survey"
+
+- date: 2019-02-26
+  presenter: Travis Gerke
+  presenter_url: https://twitter.com/travisgerke
+  topic: R-Centered Workflows - tired::wired
+  link: https://github.com/tgerke/20190226_tired-wired
