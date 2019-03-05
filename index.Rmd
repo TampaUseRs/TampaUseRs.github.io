@@ -10,6 +10,7 @@ $("a[href^='#']").click(function() {
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+options(htmltools.dir.version = FALSE)
 library(tidyverse)
 library(htmltools)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
@@ -128,6 +129,9 @@ if (is.null(upcoming$result)) {
 ## Past Meetups
 
 ```{r past-meetups}
+# keep random numbers in DT from creating fake diffs
+set.seed(4242)
+
 make_link <- function(url, text) {
     if (!is.null(url) && !is.na(url) && url != "") {
       paste0('<a href="', url, '">', text, '</a>')
