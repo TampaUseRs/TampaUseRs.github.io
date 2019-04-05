@@ -69,3 +69,9 @@
   presenter_url: https://twitter.com/travisgerke
   topic: R-Centered Workflows - tired::wired
   link: https://github.com/tgerke/20190226_tired-wired
+
+- date: 2019-03-26
+  presenter: Paul Stewart
+  presenter_url: "https://github.com/pstew/"
+  topic: "Behind The Plot: Visualizing Lung Cancer Omics with R!"
+  link: "https://www.meetup.com/Tampa-R-Users-Group/events/259699717/"
