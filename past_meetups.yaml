@@ -75,3 +75,8 @@
   presenter_url: "https://github.com/pstew/"
   topic: "Behind The Plot: Visualizing Lung Cancer Omics with R!"
   link: "https://www.meetup.com/Tampa-R-Users-Group/events/259699717/"
+
+- date: 2019-04-23
+  presenter: Tampa R Users Group
+  topic: "#TidyTuesday Hacky Hour"
+  link: "https://github.com/TampaUseRs/hacky-hour-april-2019"
