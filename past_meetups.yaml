@@ -80,3 +80,8 @@
   presenter: Tampa R Users Group
   topic: "#TidyTuesday Hacky Hour"
   link: "https://github.com/TampaUseRs/hacky-hour-april-2019"
+
+- date: 2019-05-28
+  presenter: Zach Thompson
+  topic: "Accelerometer Data with GGIR"
+  link: "https://github.com/TampaUseRs/TampaUseRs/blob/master/meetups/20190528-ggir-accelerometer/GGIR_tampa-r-meetup_2019-05-28.pdf"
