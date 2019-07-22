@@ -85,3 +85,9 @@
   presenter: Zach Thompson
   topic: "Accelerometer Data with GGIR"
   link: "https://github.com/TampaUseRs/TampaUseRs/blob/master/meetups/20190528-ggir-accelerometer/GGIR_tampa-r-meetup_2019-05-28.pdf"
+
+- date: 2019-06-25
+  presenter: Joshua D. Barillas
+  presenter_url: "https://github.com/jdbarillas"
+  topic: "A Primer on R Markdown"
+  link: "https://sharp-lamport-f1a531.netlify.com/"
