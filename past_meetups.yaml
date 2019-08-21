@@ -94,4 +94,6 @@
 
 - date: 2019-07-23
   presenter: Chris Woodard
+  presenter_url: "https://github.com/sciprojguy/"
   topic: "Processing National Weather Service API Data"
+  link: "https://github.com/sciprojguy/nws_api"
