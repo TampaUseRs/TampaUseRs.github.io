@@ -91,3 +91,7 @@
   presenter_url: "https://github.com/jdbarillas"
   topic: "A Primer on R Markdown"
   link: "https://sharp-lamport-f1a531.netlify.com/"
+
+- date: 2019-07-23
+  presenter: Chris Woodard
+  topic: "Processing National Weather Service API Data"
