@@ -12,10 +12,6 @@ unlink("tampausers-web-auto", recursive = TRUE)
 git2r::clone("https://github.com/TampaUseRs/TampaUseRs.github.io.git", "tampausers-web-auto", credentials = git2r::cred_token())
 setwd("tampausers-web-auto")
 
-# Clear meetup cache
-logger("Clearing meetup response cache")
-unlink("upcoming.rds")
-
 # Rebuild website
 logger("Rebuilding website...")
 rmarkdown::render_site(encoding = "UTF-8")
