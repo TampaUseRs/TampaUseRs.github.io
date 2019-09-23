@@ -15,18 +15,10 @@ library(tidyverse)
 library(htmltools)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
-## METUP_KEY required
-## Login to Meetup, go to https://secure.meetup.com/meetup_api/key/, copy key
-## Run usethis::edit_r_environ() and add following line
-## MEETUP_KEY=<your key here>
-if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load_gh("rladies/meetupr")
-trug_url_slug <- "Tampa-R-Users-Group"
-
 icon <- function(name, class = NULL) {
   name = paste0("fa fa-", name)
   class = if (!is.null(class)) paste(name, class) else name
-  paste0('<i class="', class, '"></i>')
+  HTML(paste0('<i class="', class, '"></i>'))
 }
 ```
 
@@ -59,70 +51,71 @@ The [discussion board][discussion-board] is under Teams > Everyone > Discussion.
 ## Upcoming Meetups
 
 ```{r get-upcoming, include=FALSE}
-upcoming <- if (file.exists("upcoming.rds")) {
-  message("Loading cached upcoming meetup information")
-  readRDS("upcoming.rds")
+upcoming <- yaml::read_yaml("next_meetup.yaml")
+date <- lubridate::ymd_hms(
+  upcoming$datetime, truncated = 3, tz = "America/New_York"
+)
+upcoming$datetime <- if (lubridate::hour(date) == 0) {
+  strftime(date, "%A, %b %d, %Y")
 } else {
-  message("Getting up-to-date meetup events from Meetup")
-  safely_get_meetup_events <- safely(meetupr::get_events)
-  upcoming <- safely_get_meetup_events(trug_url_slug)
-  saveRDS(upcoming, "upcoming.rds")
-  upcoming
+  strftime(date, "%A, %b %d, %Y at %I:%M%P")
 }
 ```
 
 ```{r upcoming-meetups}
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-event_to_html <- function(x) {
-  link_google_maps <- glue::glue("https://maps.google.com/?ll={x$venue_lat},{x$venue_lon}")
-  
-  links <- select(x, link, venue_name, contains("venue_address"), venue_city) %>% 
-    tidyr::gather() %>% 
-    mutate(key = ifelse(grepl("venue_address", key) | key == "venue_city", "venue_address", key)) %>% 
-    group_by(key) %>% 
-    summarize(value = paste(value, collapse = ", ")) %>% 
-    ungroup() %>% 
-    arrange(desc(key)) %>% 
-    mutate(
-      value = case_when(
-        key == "link" ~ paste0('<a href="', value, '">', value, "</a>"),
-        key == "venue_address" ~ paste0('<a href="', link_google_maps, '">', value, "</a>"),
-        TRUE ~ value
-      ),
-      key = case_when(
-        key == 'venue_name' ~ icon("map-marker"),
-        key == "venue_address" ~ icon("location-arrow"),
-        key == "link" ~ icon("external-link"),
-        TRUE ~ ""
-      )
-    )
-  
-  tagList(
-    h3(x$name),
-    h4(strftime(paste(x$local_date, x$local_time), "%A, %b %d, %Y at %I:%M%P")),
-    p(
-      HTML(paste(
-        '<table id="meta"><tbody>', 
-        paste(
-          purrr::map_chr(
-            apply(links, 1, function(x) paste0('<td style="text-align: center">', x[1], "</td>",
-                                               '<td style="text-align: left">', x[2], "</td>")),
-            function(x) paste0("<tr>", x, "</tr>", collapse = "\n")
-          ),
-          collapse = "\n"
-        ),
-        "</tbody></table>"
-      ))
-    ),
-    tags$blockquote(HTML(x$description))
-  )
-}
-if (is.null(upcoming$result)) {
+today <- lubridate::today() + lubridate::days(1)
+if (is.null(upcoming) || date < today) {
   div(p("We try to meet on the fourth Tuesday of each month,", 
         "but our next meetup has not yet been announced. Check back soon!"))
 } else {
-  upcoming <- upcoming$result
-  div(purrr::map(split(upcoming, upcoming$id), event_to_html))
+  tagList(
+    div(
+      class = "upcoming",
+      HTML(glue::glue("<h3>{speaker} presents <em>{title}</em></h3>", .envir = upcoming)),
+      h4(upcoming$datetime),
+      tags$ul(
+        class = "meetup-info",
+        tags$li(
+          icon("map-marker"), upcoming$location$name
+        ),
+        tags$li(
+          icon("location-arrow"),
+          tags$a(href = upcoming$location$address_url, upcoming$location$address)
+        ),
+        tags$li(
+          icon("external-link"),
+          tags$a(href = upcoming$meetup_url, "RSVP on Meetup!")
+        )
+      ),
+      tags$h5("What we'll do"),
+      tags$p(HTML(upcoming$description)),
+      tags$h5("What to bring"),
+      tags$p(HTML(upcoming$bring))
+    )
+  )
+}
+```
+
+
+```{css echo=FALSE}
+.meetup-info {
+  list-style: none;
+  padding-left: 0;
+}
+.meetup-info i {
+  width: 30px;
+  text-align: center;
+}
+#upcoming-meetups {
+  margin-top: 2em;
+}
+.upcoming {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	padding: 2em;
+	border: 2px solid #98B7D9;
+	border-radius: 5px;
+	box-shadow: 3px 5px 5px 0 rgba(0,0,0,0.1);
 }
 ```
 

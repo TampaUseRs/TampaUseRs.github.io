@@ -97,3 +97,9 @@
   presenter_url: "https://github.com/sciprojguy/"
   topic: "Processing National Weather Service API Data"
   link: "https://github.com/sciprojguy/nws_api"
+
+- date: 2019-08-27
+  presenter: Matt Hellmann
+  presenter_url: https://twitter.com/mrhellmann_
+  topic: "Geospatial Data in R: A 10,000ft View"
+  link: "http://mrhellmann.com/tampa_r_pres/"
