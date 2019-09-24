@@ -63,7 +63,7 @@ upcoming$datetime <- if (lubridate::hour(date) == 0) {
 ```
 
 ```{r upcoming-meetups}
-today <- lubridate::today() + lubridate::days(1)
+today <- lubridate::today() - lubridate::days(1)
 if (is.null(upcoming) || date < today) {
   div(p("We try to meet on the fourth Tuesday of each month,", 
         "but our next meetup has not yet been announced. Check back soon!"))

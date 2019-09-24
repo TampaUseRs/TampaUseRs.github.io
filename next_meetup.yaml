@@ -3,6 +3,7 @@ speaker: Liz Herdter
 datetime: 2019-09-24 19:00
 description: >
   Liz will be talking about R cheatsheets!
+meetup_url: https://www.meetup.com/Tampa-R-Users-Group/events/264780004/
 bring: >
   If you wish to bring a laptop to follow along, code and slides will be posted 
   ~24 hours in advance on the
@@ -11,4 +12,3 @@ location:
   name: Southern Brewing & Winemaking
   address: 4500 North Nebraska Avenue, Tampa
   address_url: https://maps.google.com/?ll=27.9862041473389,-82.4514465332031
-meetup_url: https://www.meetup.com/Tampa-R-Users-Group/events/263838512/
